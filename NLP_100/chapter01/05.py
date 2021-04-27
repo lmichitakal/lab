@@ -1,4 +1,7 @@
 def n_gram(n, S):
-    return 0
+    return [S[idx:idx + n] for idx in range(len(S) - n + 1)]
 
-s = "I am an NLPer"
+S = "I am an NLPer"
+for i in range(1, 4):
+    print(n_gram(i, S))
+    print(n_gram(i, S.split(' ')))
