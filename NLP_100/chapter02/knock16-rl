@@ -1,0 +1,5 @@
+Brittany	F	21724	1993
+Taylor	F	21267	1993
+Amanda	F	20811	1993
+Elizabeth	F	17557	1993
+Stephanie	F	17183	1993

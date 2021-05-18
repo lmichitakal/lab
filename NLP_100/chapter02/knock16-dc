@@ -1,0 +1,5 @@
+Mary	F	16706	1900
+Helen	F	6343	1900
+Anna	F	6114	1900
+Margaret	F	5304	1900
+Ruth	F	4765	1900
