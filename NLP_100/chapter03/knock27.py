@@ -1,20 +1,17 @@
 import re
-from knock26 import dic_rm
+from knock26 import dic_remove_mu
+from collections import defaultdict
 
 def remove_il(text):
-    pattern = r'\[\[(?:[^:\]]+?\|)?([^:]+?)\]\]'  # r"\[\[……\]\]" : 内部リンクと一致, (?:[^:\[]+?\|)? : 削除して良い文字列, 
+    pattern = r'\[\[(?:[^:\]]+?\|)?([^:]+?)\]\]'
     text = re.sub(pattern, r'\1', text)
     return text
 
-#26
-for k, v in dic_rm.items():
-    print(k + ': ' + v)
+dic_remove_il = defaultdict(str)
+for k, v in dic_remove_mu.items():
+	dic_remove_il[k] = remove_il(v)
+dic_remove_il = dict(dic_remove_il)
 
-print()
-print('---------------')
-print()
-
-#27
-dic_rm_il = {k: remove_il(v) for k, v in dic_rm.items()}
-for k, v in dic_rm_il.items():
-    print(k + ': ' + v)
+if __name__ == "__main__":
+	for k, v in dic_remove_il.items():
+		print(k + ': ' + v)
