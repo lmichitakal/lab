@@ -1,1 +1,0 @@
-    2780 /Users/michitaka/lab/NLP_100/chapter02/popular-names.txt
