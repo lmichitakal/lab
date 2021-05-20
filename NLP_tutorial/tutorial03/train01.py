@@ -1,9 +1,3 @@
-### file ###
-#test/01-train-input.txt ---> test/01-train-answer.txt
-#test/01-test-input.txt  ---> test/01-test-answer.txt
-
-writing = "model_file.word"
-
 import sys
 import math
 from collections import *
@@ -24,9 +18,9 @@ def train_unigram(train_file):
     return counts, total_counts
 
 def prob(counts, total_counts):
-    prob_dic = defaultdict(int)
+    prob_dic = defaultdict(lambda: 0)
     for k, v in counts:
-        prob[k] = float(v / total_counts)
+        prob_dic[k] = float(v / total_counts)
     return prob_dic
 
 if __name__ == "__main__":
@@ -36,3 +30,4 @@ if __name__ == "__main__":
         for k, v in counts:
             prob = float(v / total_counts)
             print("{} {}".format(k, prob) , file = model)
+    
