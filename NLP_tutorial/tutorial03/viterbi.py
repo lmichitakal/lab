@@ -17,7 +17,7 @@ def words_seg_viterbi(edges_dic, input_file, write_ans):
         Lamda = 0.95
         V = 10 ** 6
         for line in lines:
-            line.strip()
+            
             #前向きステップ
             best_edge = defaultdict(lambda:0)
             best_score = defaultdict(lambda:0)
@@ -26,12 +26,10 @@ def words_seg_viterbi(edges_dic, input_file, write_ans):
             
             for word_end in range(1, len(line)+1):
                 best_score[word_end] = 10 ** 10
-                for word_begin in range(word_end):
+                for word_begin in range(0, word_end):
                     word = line[word_begin: word_end]
                     if word in edges_dic or len(word) ==  1:
-                        prob =  (1 - Lamda) / V
-                        if word in edges_dic:
-                            prob += Lamda * float(edges_dic[word])
+                        prob =  (1 - Lamda) / V + Lamda * float(edges_dic[word])
                         my_score = best_score[word_begin] - math.log(prob)
                         if my_score < best_score[word_end]:
                             best_score[word_end] = my_score
@@ -76,7 +74,7 @@ if __name__ == "__main__":
 
     counts, total_counts = train_unigram(wiki_model)
     prob_dic = prob(counts, total_counts)
-    words_seg_viterbi(edges_dic, wiki_input, 'ans_wiki.txt')
+    words_seg_viterbi(prob_dic, wiki_input, 'ans_wiki.txt')
 
 
 
@@ -87,4 +85,12 @@ Word Prec: 46.02% (428/930)
 Word Rec: 66.46% (428/644)
 F-meas: 54.38%
 Bound Accuracy: 66.19% (560/846)
+'''
+#モデルの辞書間違えてた
+'''
+Sent Accuracy: 0.00% (/84)
+Word Prec: 71.88% (1943/2703)
+Word Rec: 84.22% (1943/2307)
+F-meas: 77.56%
+Bound Accuracy: 86.30% (2784/3226)
 '''
