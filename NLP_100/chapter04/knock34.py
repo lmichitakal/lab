@@ -14,11 +14,6 @@ for sen in sentences:
             if len(cn) >= 2:
                 consec_N.add(''.join(cn))
             cn = []
-            
-        
-
-
-    
     
 if __name__ == '__main__':
     print(consec_N)
