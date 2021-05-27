@@ -10,7 +10,6 @@
 '''
 
 
-
 with open('neko.txt.mecab') as f:
     sentences = []
     a_sectence = []
@@ -33,6 +32,7 @@ with open('neko.txt.mecab') as f:
             word['pos'] = info[0]
             word['pos1'] = info[1]
             a_sectence.append(word)
+
 if __name__ == "__main__":
     for i in sentences[2]:
         print(i)
