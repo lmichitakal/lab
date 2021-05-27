@@ -2,8 +2,8 @@ from knock30 import sentences
 #NP 名詞句
 NPs = set()
 for sen in sentences:
-    for i in range(len(sen)):
-        if sen[i]['surface'] == 'の' and i != len(sen)-1:
+    for i in range(len(sen)-1):
+        if sen[i]['surface'] == 'の':
 
             prev = sen[i-1]
             next = sen[i+1]

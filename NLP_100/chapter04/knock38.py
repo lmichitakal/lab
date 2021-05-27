@@ -5,7 +5,7 @@ from collections import defaultdict
 cnt = []
 for w in count:
     cnt.append(w[1])
-
+plt.rcParams["font.family"] = "Hiragino sans"
 plt.figure(figsize=(8, 4))
 plt.hist(cnt, bins=50)
 plt.xlabel('出現頻度')
