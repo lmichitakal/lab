@@ -11,7 +11,7 @@ def solve(lines):
     return dic
 
 if __name__ == "__main__":
-    with open(sys.argv[1]) as f:
+    with open('./nlptutorial/data/wiki-en-train.word') as f:
         lines = f.readlines()
     #lines = open(sys.argv[1], "r")
     ans = solve(lines)
